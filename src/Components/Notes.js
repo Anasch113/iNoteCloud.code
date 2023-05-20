@@ -32,9 +32,7 @@ export default function Notes(props) {
 
     const handleClick = ()=>{
      
-      editNote(note.id, note.etitle, note.edescription, note.etag);
-      setNote({etitle:"", edescription: "", etag: ""})
-      refClose.current.click();
+     
       props.showAlert("Updated successfully", "success")
     }
 
@@ -42,7 +40,7 @@ export default function Notes(props) {
       ref.current.click()
 setNote({id : currentNote._id, etitle : currentNote.title, edescription: currentNote.description, etag : currentNote.tag})
     }
-    const ref = useRef(null)
+
     const refClose = useRef(null)
   return (
     <>
@@ -67,14 +65,7 @@ setNote({id : currentNote._id, etitle : currentNote.title, edescription: current
                         <input value={note.etitle} type="text" onChange={onChange} className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" />
                         <div id="title" className="form-text" minLength= {4} required ></div>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-                        <input type="text" onChange={onChange} value={note.edescription} className="form-control" name='edescription' id="edescription" minLength= {4} required />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Tag</label>
-                        <input type="text" onChange={onChange} className="form-control" value={note.etag} name='etag' id="etag" />
-                    </div>
+                 
                    
                    
                 </form>
