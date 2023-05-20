@@ -9,16 +9,6 @@ const Note = require('../models/Note')
 
 
 
-router.get('/fetchallnotes', fetchuser, async (req, res) => {
-   try {
-      const notes = await Note.find({ user: req.user.id })
-      res.json(notes)
-// Catch Errors
-   } catch (error) {
-      console.error(error.message);
-      res.status(500).send(" Ops! iNotebook got some error ")
-   }
-})
 
 
 // Route # 2: Add a note using post: "/api/notes/addnote". Login required.
