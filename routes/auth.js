@@ -9,21 +9,14 @@ const JWT_SECRET = 'hello';
 
 
 // Route # 1: Create a user using POST: "/api/auth/createuser" does not require authentication. No Login required.
-router.post('/createuser', [
-
-
-  // Cheques 
-  body('email', "Enter a valid email").isEmail(),
-  body('password', "Choose a strong password").isLength({ min: 5 }),
+router.post('/createuser', [th({ min: 5 }),
   body('name', "Enter a valid username").isLength({ min: 3 }),
 
   
 ], async (req, res) => {
 let success = false;
   // If there are errors then return bad requests and errors
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({success, errors: errors.array() });
+  const errors = validationResult(req);    return res.status(400).json({success, errors: errors.array() });
 
   }
   // Check whether the user is already existed
@@ -42,9 +35,7 @@ let success = false;
     // Create a new user
     user = await User.create({
       name: req.body.name,
-      password: secPass,
-      email: req.body.email,
-
+     
     })
 const data = {
   user :{
@@ -69,16 +60,11 @@ success = true;
 router.post('/login', [
 
   // Cheques 
-  body('email', "Enter a valid email").isEmail(),
-  body('password', "Password cannot be blank").exists(),
-  
 
   // If there are errors then return bad requests and errors
 ], async (req, res) => {
 let success = false;
   const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
 
   }
 
