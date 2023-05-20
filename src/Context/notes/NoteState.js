@@ -8,20 +8,7 @@ const NoteState = (props)=>{
     
   const [notes, setNotes] = useState(notesInitial)
 
- // Get a note
- const getNotes = async ()=>{
 
-  // API CALL
-  const response = await fetch(`${host}/api/notes/fetchallnotes`, {
-    method: "GET", 
-    
-    headers: {
-      "Content-Type": "application/json",
-      "auth-token" : localStorage.getItem('token')
-      
-    },
-  
-    
   });
   const json = await response.json()
   console.log(json)
@@ -66,13 +53,7 @@ const addNote = async ( _id, title, description, tag)=>{
     },
   
     
-  });
-  const json = await response.json()
-  console.log(json)
 
-// console.log("Deleting a note" + id)
-const newNotes = notes.filter((note)=>{return note._id!==id})
-setNotes(newNotes);
   }
 
 
@@ -80,13 +61,13 @@ setNotes(newNotes);
   //Edit a note
   const editNote = async(id, title,  description, tag)=>{
   // API CALL
-  const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-    method: "PUT", 
-    
-    headers: {
+  coheaders: {
       "Content-Type": "application/json",
       "auth-token" : localStorage.getItem('token')
-      
+      nst response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+    method: "PUT", 
+    
+    
     },
   
     body: JSON.stringify({title, description, tag}), 
