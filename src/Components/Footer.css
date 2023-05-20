@@ -1,0 +1,38 @@
+.contact{
+	padding: 50px 11% 40px;
+    
+}
+
+.main-contact{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+	gap: 2rem;
+	align-items: center;
+}
+.contact-content h5{
+	font-size: 1.1rem;
+	margin-bottom: 20px;
+}
+.contact-content li{
+	margin-bottom: 12px;
+}
+.contact-content li a{
+	display: block;
+	font-size: 15px;
+	color: #374151;
+	font-weight: 400;
+	transition: all .45s ease;
+}
+.contact-content li a:hover{
+	color: var(--text-color);
+	transform: translateX(-5px);
+}
+
+.end-text p{
+
+	text-align: center;
+	padding: 20px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: var(--text-color);
+}

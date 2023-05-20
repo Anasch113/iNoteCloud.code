@@ -1,0 +1,19 @@
+body{
+    background-color: #999;
+}
+.container h2{
+margin-top: 10px;
+margin-left: 117px;
+font-family: 'Poppins', sans-serif;
+}
+
+.container h3{
+margin-top: 25px;
+margin-left: 290px;
+font-family: 'Poppins', sans-serif;
+
+}
+ span{
+    font-family: 'Poppins', sans-serif;
+    color: green;
+}
